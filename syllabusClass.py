@@ -15,6 +15,8 @@ class syllabus:
     
     def uploadSyllabus(self, filename, fileSize, legible,pdfPath) -> bool:
         fileType = filename.split(".")[-1]
+        if filename == "NULL"  or fileSize == "NULL" or legible == "NULL" or pdfPath == "NULL":
+            return False
 
         if fileType == "pdf" and fileSize <= 25 and legible:
             self.fileName = filename
@@ -39,3 +41,4 @@ class syllabus:
     def getPages(self):
 
         return self.pages
+
