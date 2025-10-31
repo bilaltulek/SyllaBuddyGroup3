@@ -5,6 +5,9 @@ import tempfile
 import subprocess
 instance = syllabus()
 localManager = dbManager("syllabusDB", "syllabusFiles3")
+
+#FOR DEBUGGING / SQLITE NAVIGATION
+#will not be invcluded in final phase this is just a simple sqlite termninal menu i made to test the different functions and some may not work cause they werent the focus of this phase
 #instance.uploadSyllabus("example.pdf", 23, True)
 while True:
     print("\n choose options\n 1: uploadSyllabus\n 2: edit syllabus name\n 3:delete row\n 4:display all syllabus\n 5:query\n 6:displaypdf\n 7:exit")
@@ -52,4 +55,5 @@ while True:
             localManager.retrieve_and_open_pdf(userPdfOpen)
             break
         case 7:
+
             break
