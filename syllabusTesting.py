@@ -22,5 +22,24 @@ class TestParsing(unittest.TestCase):
     def test_Parsing(self):
         testCase = syllabusInstance.uploadSyllabus("syllabus.pdf", 2, False, "V01_Students_F25 - V01_Students_F25.pdf")
         self.assertEqual(testCase, False, 'Correctly rejects file thats it not parseable')
-if __name__ == '__main__':
-    unittest.main()
+#dont know how these would get NULL values but my homework 7 was deducted for not checking null so im going to be cautious
+class TestNullName(unittest.TestCase):
+
+    def test_nName(self):
+        testCase = syllabusInstance.uploadSyllabus("NULL", 2, False, "V01_Students_F25 - V01_Students_F25.pdf")
+        self.assertEqual(testCase, False, 'Correctly rejects file thats it not parseable')
+class TestNullSize(unittest.TestCase):
+
+    def test_nSize(self):
+        testCase = syllabusInstance.uploadSyllabus("syllabus.pdf", "NULL", True, "V01_Students_F25 - V01_Students_F25.pdf")
+        self.assertEqual(testCase, False, 'correctly uploaded syllabus')
+class TestNullLegible(unittest.TestCase):
+
+    def test_Base(self):
+        testCase = syllabusInstance.uploadSyllabus("syllabus.pdf", 12, "NULL", "V01_Students_F25 - V01_Students_F25.pdf")
+        self.assertEqual(testCase, False, 'correctly uploaded syllabus')
+class TestNullPath(unittest.TestCase):
+
+    def test_Base(self):
+        testCase = syllabusInstance.uploadSyllabus("syllabus.pdf", 12, True, "NULL")
+        self.assertEqual(testCase, False, 'correctly uploaded syllabus')
