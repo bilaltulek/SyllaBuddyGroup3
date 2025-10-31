@@ -5,6 +5,8 @@ import sys
 import array
 class dbManager:
     classVar =" "
+
+    #each of these function are pretty self explanatory 
     def __init__(self, dbName, tableName):
         self.dbName = dbName
         self.tableName = tableName
@@ -35,7 +37,7 @@ class dbManager:
 
         cursor = self.conn.cursor()
 
-        #accidentally made the id col into Iid
+        
         cursor.execute("DELETE FROM " + self.tableName + " WHERE id = ?;", (ID,))
         self.conn.commit()
         #print(queryFormat)
@@ -55,7 +57,8 @@ class dbManager:
 
         #cursor.execute(queryFormat, ID)
         #self.conn.commit()
-
+    
+    #this is for debugging and making sure that the pdf exists, the other open pdf function is what send the byte string to whatever needs it
     def retrieve_and_open_pdf(self, name_in_db, output_filename="temp_retrieved.pdf"):
         pdf_data = None
 
@@ -87,6 +90,7 @@ class dbManager:
                 pdf_data = row[0]
 
             return pdf_data
+
 
 
 
