@@ -9,7 +9,7 @@ import subprocess
 
 class UserSession:
     def endUserSession(self, userName, isLoggedIn, networkState):
-        if isLoggedIn and networkState != False:
+        if isLoggedIn and networkState != False and networkState != "NULL":
             print("Logged out")
             return True
         elif( isLoggedIn == False):
@@ -17,6 +17,9 @@ class UserSession:
             return False
         elif(networkState == False):
             print("Connection lost, please check connection")
+            return False
+        elif networkState == "NULL" or userName == "NULL" or isLoggedIn == "NULL":
+            print("Exceptional error, please try again")
             return False
     def testConnection(self) -> bool:
         params = ['-c', '1', '-w', '2']
@@ -36,5 +39,7 @@ class UserSession:
 
 #instance = UserSession()
 #instance.testConnection()
+
+
 
 
