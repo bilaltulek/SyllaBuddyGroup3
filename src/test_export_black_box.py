@@ -3,20 +3,16 @@ import os
 from export import Export
 
 class TestExtractorBlackBox(unittest.TestCase):
-    """Black box testing based on the test case table"""
     
     def setUp(self):
-        """Setup before each test"""
         self.extractor = Export()
         self.test_output = "test_export.txt"
     
     def tearDown(self):
-        """Cleanup after each test"""
         if os.path.exists(self.test_output):
             os.remove(self.test_output)
     
     def test_case_1_successful_export_with_events(self):
-        """Test Case 1: Events loaded (5), export should be successful"""
         events = [
             {"date": "Jan 12", "title": "Introduction to Course"},
             {"date": "Jan 19", "title": "Chapter 1 Review"},
@@ -39,7 +35,6 @@ class TestExtractorBlackBox(unittest.TestCase):
             self.assertIn("Introduction to Course", content)
     
     def test_case_2_no_events_loaded(self):
-        """Test Case 2: No events loaded (0), export should fail with message"""
         
         result = self.extractor.exportEvents(self.test_output)
         
@@ -48,7 +43,6 @@ class TestExtractorBlackBox(unittest.TestCase):
         self.assertFalse(os.path.exists(self.test_output))
     
     def test_case_3_empty_export_path(self):
-        """Test Case 3: Events loaded but empty export path"""
         events = [
             {"date": "Jan 12", "title": "Introduction to Course"},
             {"date": "Feb 02", "title": "Midterm Exam"}
@@ -61,7 +55,6 @@ class TestExtractorBlackBox(unittest.TestCase):
         self.assertIn("Export path cannot be empty", self.extractor.errorMessage)
     
     def test_case_4_invalid_export_path(self):
-        """Test Case 4: Events loaded but invalid export path (simulates network/IO error)"""
         events = [
             {"date": "Jan 12", "title": "Introduction to Course"},
             {"date": "Feb 02", "title": "Midterm Exam"}
