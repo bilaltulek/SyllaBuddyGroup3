@@ -1,16 +1,6 @@
-import bcrypt
 import unittest
 from login import Login 
 
-'''
-# hashed test user
-hashed_pw = bcrypt.hashpw(b"Password@123", bcrypt.gensalt())
-Login.existingUsers = {"James123": hashed_pw}
-
-# try login
-test_user = Login("James123", None, "Password@123")
-test_user.validate("James123", None, "Password@123")
-'''
 
 class blackBoxLogin(unittest.TestCase):
 
