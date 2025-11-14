@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Syllabuddy Login</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="page-header">
+        <div class="logo-area">
+            <div class="logo"><!-- Replace the SVG in index.html with this <i> tag -->
+                <img src="Book open.png" alt="open-book-logo" id="open-book" /><span class="logo-text">Syllabuddy</span></div>
+        </div>
+    </header>
+
+    <div class="login-box">
+        <h2>Log in</h2>
+
+        <form id="login-form">
+            <div class="input-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <a href="/forgot-password" class="forgot-link">Forgot Password?</a>
+
+            <button type="submit" id="login-button">Log in</button>
+            
+            <a href="createaccount.html" class="create-account-link">Create an account</a>
+        </form>
+    </div>
+</body>
+</html>
